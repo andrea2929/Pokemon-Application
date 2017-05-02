@@ -67,6 +67,21 @@
           </div>
         </div>
 			<?php endforeach; ?>
+
+			<h3>Moves</h3>
+			<div style="height: 500px; overflow: scroll;">
+				<?php foreach($pokemon->getMoves() as $move) : ?>
+	        <p>
+						<?php echo $move['identifier']; ?>
+						<?php echo $move['level']; ?>
+						<?php echo $move['power']; ?>
+						<?php echo $move['pp']; ?>
+						<?php echo $move['accuracy']; ?>
+						<?php echo $move['priority']; ?>
+					</p>
+				<?php endforeach; ?>
+			</div>
+
 		</div>
 		<div class="col-md-6">
 			<div class="panel panel-default">
