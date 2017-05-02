@@ -8,6 +8,7 @@ class Pokemon {
 	private $abilities;
 	private $types;
 	private $moves;
+	private $evolution;
 
 	public function __construct($pokeid, $db) {
 		$this->id = $pokeid;
@@ -18,6 +19,7 @@ class Pokemon {
 		$this->findAbilities();
 		$this->findTypes();
 		$this->findMoves();
+		$this->findEvolution();
 	}
 
 	public function findPokemon() {
@@ -70,6 +72,17 @@ class Pokemon {
 			'id' => $this->id
 		);
 
+		$sql = file_get_contents('sql/evolutionchain.sql');
+		$statement = $this->database->prepare($sql);
+		$statement->execute($params);
+		$this->evolution = $statement->fetchAll(PDO::FETCH_ASSOC);
+	}
+
+	public function findEvolution() {
+		$params = array(
+			'id' => $this->id
+		);
+
 		$sql = file_get_contents('sql/getpokemonmoves.sql');
 		$statement = $this->database->prepare($sql);
 		$statement->execute($params);
@@ -94,6 +107,10 @@ class Pokemon {
 
 	public function getMoves() {
 		return $this->moves;
+	}
+
+	public function getEvolution() {
+		return $this->evolution;
 	}
 
 	public function getFlavorText() {

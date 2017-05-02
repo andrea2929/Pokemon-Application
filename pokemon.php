@@ -69,27 +69,70 @@
 			<?php endforeach; ?>
 
 			<h3>Moves</h3>
-			<div style="height: 500px; overflow: scroll;">
+			<div class="panel panel-default move-box">
+				<table class="table">
+					<thead>
+						<tr>
+							<th class="move-name">Move</th>
+							<th>Level</th>
+							<th>Power</th>
+							<th>PP</th>
+							<th>Accuracy</th>
+							<th>Priority</th>
+						</tr>
+					</thead>
 				<?php foreach($pokemon->getMoves() as $move) : ?>
-	        <p>
-						<?php echo $move['identifier']; ?>
-						<?php echo $move['level']; ?>
-						<?php echo $move['power']; ?>
-						<?php echo $move['pp']; ?>
-						<?php echo $move['accuracy']; ?>
-						<?php echo $move['priority']; ?>
-					</p>
+	        <tr data-toggle="collapse" href="#<?php echo $move['identifier']; ?>" aria-expanded="false" aria-controls="collapseExample">
+						<td class="capitalize move-name">
+							<i class="fa fa-bookmark" style="color: <?php echo $move['type']; ?>;" aria-hidden="true"></i>
+							<?php echo str_replace("-"," ",$move['identifier']); ?>
+						</td>
+						<td><?php echo $move['level']; ?></td>
+						<td><?php echo $move['power']; ?></td>
+						<td><?php echo $move['pp']; ?></td>
+						<td><?php echo $move['accuracy']; ?></td>
+						<td><?php echo $move['priority']; ?></td>
+					</tr>
+					<tr>
+						<td style="width: 100%; padding: 0px; border-top: none;">
+							<div class="collapse" id="<?php echo $move['identifier']; ?>">
+								<?php echo $move['short_effect']; ?>
+							</div>
+						</td>
+					</tr>
 				<?php endforeach; ?>
+				</table>
 			</div>
 
+			<h3>Evolution</h3>
+			<div class="pokedex">
+				<div class="row">
+					<?php foreach($pokemon->getEvolution() as $p) : ?>
+						<div class="col-sm-3">
+							<a  style="display:block; width: 140px;" href="pokemon.php?id=<?php echo $p['id']; ?>">
+			  				<div class="pokedex-item">
+			  					<div class="pokedex-item-info">
+			  						<img src="images/icons/<?php echo $p['id']?>.png"><br>
+			  						<?php echo $p['identifier']?>
+			  					</div>
+			  					<div class="pokedex-item-hover">
+			  						<h2><?php echo $p['id']?></h2>
+			  					</div>
+			  				</div>
+			  			</a>
+						</div>
+					<?php endforeach; ?>
+				</div>
+			</div>
 		</div>
+
 		<div class="col-md-6">
 			<div class="panel panel-default">
   			<div class="panel-heading">Abilities</div>
 				<table class="table capitalize center">
 					<?php foreach($pokemon->getAbilities() as $ability) : ?>
 						<tr>
-							<td>
+							<td <?php if($ability['is_hidden']==1){ echo 'style="font-weight: bold;"'; } ?>>
 								<a href="ability.php?id=<?php echo $ability['id']; ?>"><?php echo $ability['identifier']; ?></a>
 							</td>
 						</tr>
