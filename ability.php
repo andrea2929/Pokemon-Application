@@ -11,6 +11,11 @@
   $statement->execute($params);
   $ability = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+	$sql = file_get_contents('sql/getabilityprose.sql');
+  $statement = $database->prepare($sql);
+  $statement->execute($params);
+  $prose = $statement->fetchAll(PDO::FETCH_ASSOC);
+
 	$sql = file_get_contents('sql/getpokemonbyability.sql');
   $statement = $database->prepare($sql);
   $statement->execute($params);
@@ -31,7 +36,13 @@
 			<?php foreach($averages as $average) : ?>
 		  	<p><strong class="capitalize"><?php echo $average['identifier'] ?></strong>: <?php echo $average['base_stat'] ?></p>
 			<?php endforeach; ?>
+
+			<h3>Prose</h3>
+			<?php foreach($prose as $p) : ?>
+		  	<p><?php echo $p['effect']; ?></p>
+			<?php endforeach; ?>
 		</div>
+
 		<div class="col-sm-6">
 			<h3>Flavor Text</h3>
 			<?php foreach($ability as $a) : ?>
