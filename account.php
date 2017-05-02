@@ -57,6 +57,7 @@
 			<strong>Username: </strong> <?php echo $user['username']; ?><br>
 			<strong>First Name: </strong> <?php echo $user['full_name']; ?><br>
 			<strong>Email: </strong> <?php echo $user['email']; ?><br>
+			<strong>Phone: </strong> <?php echo $user['phone']; ?><br>
 
 			<br>
 			<a class="btn btn-primary" role="button" data-toggle="collapse" href="#editprofile">

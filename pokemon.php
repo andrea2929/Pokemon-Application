@@ -7,7 +7,6 @@
 ?>
 
 <div class="container" style="margin-top: 50px;">
-
 	<div class="row">
 		<div class="col-sm-10">
 			<h1 style="text-transform: capitalize;"><div class="pokedex-number" <?php if($pokemon->getPokemon()['species_id']>99) {echo "style='width:70px; height:70px; padding: 15px 0;'"; } ?>><?php echo $pokemon->getPokemon()['species_id']; ?></div> <?php echo $pokemon->getPokemon()['identifier']; ?></h1>
@@ -40,6 +39,16 @@
 	</div>
 	<div class="row">
 		<div class="col-md-6">
+			<ul class="list-group">
+				<?php foreach($pokemon->getTypes() as $type): ?>
+					<li class="list-group-item center" style="background-color: <?php echo $type['color'].' '; ?>;">
+						<span class="capitalize">
+							<strong><?php echo $type['identifier'].' '; ?></strong>
+						</span>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+
 			<h3>Information</h3>
 			<strong>Height</strong>: <?php echo $pokemon->getPokemon()['height']; ?><br>
 			<strong>Weight</strong>: <?php echo $pokemon->getPokemon()['weight']; ?><br>

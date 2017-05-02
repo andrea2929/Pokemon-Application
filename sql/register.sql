@@ -1,2 +1,2 @@
-INSERT INTO user (id, username, password, first_name, last_name, email)
-VALUES (:id, :username, :password, :first_name, :last_name, :email);
+INSERT INTO user (user_id, username, password, full_name, email, phone)
+VALUES (:id, :username, :password, :full_name, :email, :phone);

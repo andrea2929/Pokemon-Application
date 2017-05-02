@@ -79,13 +79,13 @@
 			</div>
 			<div class="col-sm-9">
 				<p>
-					If you don't have a <strong>username</strong> or don't remember your password you're out of luck.
-					Too bad.
+					This is a personal project created by <strong>Andrea Halenkamp</strong> using
+					the <a href="https://github.com/veekun/pokedex">Veekun database</a>.
+					All of the following has been written in php utilizing classes and a ton of sql queries.
 				</p>
 				<p>
-					Go home and snoop on someone else's project.
+					Feel free to contact me at <a href="mailto:halenkampa1@nku.edu">halenkampa1@nku.edu</a> if you have any questions.
 				</p>
-
 				<?php if ($failed == 1) { echo "<div class='alert alert-danger' role='alert'>Oh snap! You suck. You might want to figure out your username and/or password in the future.</div>";}?>
 			</div>
 	</div>
