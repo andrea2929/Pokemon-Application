@@ -96,7 +96,7 @@
 					<tr>
 						<td style="width: 100%; padding: 0px; border-top: none;">
 							<div class="collapse" id="<?php echo $move['identifier']; ?>">
-								<?php echo $move['short_effect']; ?>
+								<?php echo str_replace("$"."effect_chance",$move['effect_chance'],$move['short_effect']); ?>
 							</div>
 						</td>
 					</tr>

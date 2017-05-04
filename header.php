@@ -1,8 +1,9 @@
 <?php
+
 	include('config.php');
 	include('functions.php');
 
-	if($current_url=='abilities.php'||$current_url=='items.php'||$current_url=='moves.php'||$current_url=='statistics.php'){
+	if(strpos($current_url,'abilities.php')===0||strpos($current_url,'items.php')===0||strpos($current_url,'moves.php')===0||strpos($current_url,'statistics.php')===0){
 		$urlset = '../';
 	}
 	else {
