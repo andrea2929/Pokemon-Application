@@ -11,7 +11,7 @@ function get($key) {
 }
 
 // Get function with specified default
-function get($key, $default) {
+function gets($key, $default) {
 	if(isset($_GET[$key])) {
 		return $_GET[$key];
 	}

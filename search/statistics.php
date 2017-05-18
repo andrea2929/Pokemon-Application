@@ -3,12 +3,12 @@
   include('../header.php');
 
   $params = array(
-    'hp' => get('hp', 0),
-    'attack' => get('attack', 0),
-    'defense' => get('defense', 0),
-    'spattack' => get('spattack', 0),
-    'spdefense' => get('spdefense', 0),
-    'speed' => get('speed', 0)
+    'hp' => gets('hp', 0),
+    'attack' => gets('attack', 0),
+    'defense' => gets('defense', 0),
+    'spattack' => gets('spattack', 0),
+    'spdefense' => gets('spdefense', 0),
+    'speed' => gets('speed', 0)
   );
 
   $pokemon = query($database, $params, '../sql/search/searchbystatistics.sql');
